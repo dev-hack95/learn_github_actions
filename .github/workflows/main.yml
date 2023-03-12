@@ -25,3 +25,7 @@ jobs:
       
       # Run will tell you run bash commands
         run: echo "Hello Github-actions"
+
+      - name: Simulating Error
+        run: |
+          echo "Error taking place"; exit 1
