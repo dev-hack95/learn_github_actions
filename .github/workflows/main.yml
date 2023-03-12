@@ -1,0 +1,28 @@
+# Name of workflow
+name: First Workflow
+
+# Events
+## What is trigger for workflow
+
+on:
+  push:
+    branches:
+      - main
+      
+# Jobs
+jobs:
+  build: 
+    # Runner
+    ## Runner define the vm that will the job will run
+    runs-on: ubuntu-latest
+
+    # Steps
+    # checkout will check that is it able to access your repo
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Run a sample github action
+      
+      # Run will tell you run bash commands
+      - run: |
+          echo "Hello Github actions"
