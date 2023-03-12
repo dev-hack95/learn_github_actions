@@ -1,0 +1,23 @@
+name: Working with github actions secrets
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  working-on-secrects:
+    runs-on: ubuntu-latest
+
+    - name: Checkout Code
+      uses: actions/checkout@v3
+      with: 
+        # Full git history is needed to get a proper list of changes files within 'super-linter'
+        fetch-depth: 0
+
+    - name: Lint code Base
+      uses: github/super-linter@v4
+      env:
+        VALIDATE_ALL_CODEBASE: false
+        DEFAULT_BRANCH: main
+        GITHUB_TOKEN: ${{ secrets.GITUB_TOKEN }}
