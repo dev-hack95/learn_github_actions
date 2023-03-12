@@ -1,0 +1,17 @@
+name: linting-python-code
+# To help validate your source code
+# Check code for linting means thst that code is properly written with indentation
+
+on:
+  push:
+    brances:
+      - main
+
+jobs:
+  # Name of the job
+  python-linting-code:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Super-Linter
+        uses: github/super-linter@V4.9.4
