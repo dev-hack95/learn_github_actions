@@ -24,4 +24,4 @@ jobs:
       - name: Run a sample github action
       
       # Run will tell you run bash commands
-          run: echo "Hello Github-actions"
+        run: echo "Hello Github-actions"
