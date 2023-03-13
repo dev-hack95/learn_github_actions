@@ -4,7 +4,7 @@ name: linting-python-code
 
 on:
   push:
-    brances:
+    branches:
       - main
 
 jobs:
