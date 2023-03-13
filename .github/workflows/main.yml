@@ -1,31 +1,26 @@
 # Name of workflow
-name: First Workflow
-
-# Events
-## What is trigger for workflow
+name: Nodejs app api testing
 
 on:
   push:
     branches:
-      - main
-      
-# Jobs
+      - node
+
 jobs:
-  build: 
-    # Runner
-    ## Runner define the vm that will the job will run
+  test-api:
     runs-on: ubuntu-latest
 
-    # Steps
-    # checkout will check that is it able to access your repo
     steps:
-      - uses: actions/checkout@v3
-      
-      - name: Run a sample github action
-      
-      # Run will tell you run bash commands
-        run: echo "Hello Github-actions"
+      - uses: actions/checkout@v3  # Checkout the repo
+      - name: Use Node
 
-      - name: Simulating Error
-        run: |
-          echo "Error taking place"; exit 1
+
+        uses: action/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run test
+        run: npm test
