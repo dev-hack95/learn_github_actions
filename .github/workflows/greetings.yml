@@ -1,0 +1,18 @@
+name: Greetings
+
+# This code trigger on when new pull request is created and new issues is dected
+on: [pull_request_target, issues]
+
+jobs:
+  greetings:
+    runs-on: ubuntu-latest
+    # Giving permission to githuactions to read and write the issues and pull requests
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+    - uses: actions/first-interactions@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: "Message that will be displayed on users' first issue"
+        pr-message: "Message that will be displayed on users' first pull request"
