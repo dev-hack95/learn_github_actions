@@ -1,9 +1,6 @@
 name: Run ML pipeline
 
-on:
-  push:
-    branches:
-      - main
+on: [workflow_dispatch]
 
 jobs:
   runPipeline:
@@ -107,7 +104,7 @@ jobs:
         run: zip -r ${{ env.PACKAGE_NAME }} ./ -x *.git*
 
       - name: Configure aws
-        uses: aws-actions/configure-aws-redentials@v1
+        uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-acces-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
           aws-secret-access-key: ${{secrets.AWS_SECRETS_ACCESS_KEY}}
